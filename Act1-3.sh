@@ -1,1 +1,0 @@
-#from library ffmpeg, change aspect ratio 16:9 to 4:3 and 4:3 to 16:9
