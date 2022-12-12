@@ -56,19 +56,27 @@ then
 
     # 1.3 extracción de un fragmento del video en tiempo
     # -------Falta convertir el tiempo en formato hh:mm:ss a segundos en Int y cortar la duración del video en segundos a Int igual
-    if (($5 <= $DURACIONVIDEO & $6 <= $DURACIONVIDEO))
+    arrIN5=(${5//:/ })
+    arrIN6=(${6//:/ })
+    declare -i START_TIME=$((${arrIN5[2]}+${arrIN5[1]}*60+${arrIN5[0]}*60*60))
+    declare -i END_TIME=$((${arrIN6[2]}+${arrIN6[1]}*60+${arrIN6[0]}*60*60))
+    echo $START_TIME
+    echo $END_TIME
+    echo $DURACIONVIDEO
+    echo (($START_TIME <= $DURACIONVIDEO & $END_TIME <= $DURACIONVIDEO))
+    if (($START_TIME <= $DURACIONVIDEO & $END_TIME <= $DURACIONVIDEO))
        then
            ffmpeg -i $1 -map 0 -default_mode infer_no_subs -ss $5 -to $6 -c copy "Output_Fragment."$OUT_FORMAT
     else
         echo "Wrong cutting time starting in: "$5" and enging in: "$6", the start and end of the cut must be less or equal than the original lenght: "$DURACIONVIDEO
     fi
     # 1.4 Recorte de un área rectangular del video, escogiendo punto superior izquierdo e inferior derecho
-    if (($7 <= $SIZE_WIDE & $8 <= $SIZE_HEIGHT))
-       then
-           ffmpeg -i $1 -vf crop=$7":"$8 "recorte."$OUT_FORMAT
-    else
-        echo "Wrong size "$7" or "$8", size of both points must be equal or less than the original resolution "$SIZE_WIDE"x"$SIZE_HEIGHT
-    fi
+    #if (($7 <= $SIZE_WIDE & $8 <= $SIZE_HEIGHT))
+     #  then
+      #     ffmpeg -i $1 -vf crop=$7":"$8 "recorte."$OUT_FORMAT
+    #else
+     #   echo "Wrong size "$7" or "$8", size of both points must be equal or less than the original resolution "$SIZE_WIDE"x"$SIZE_HEIGHT
+    #fi
     #1.5 Extracción de audio de parte del video a formato raw
     ffmpeg -i $1 -vn -f f32le -acodec pcm_f32le -ac 2 output-audio.raw
 
