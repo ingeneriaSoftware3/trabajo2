@@ -86,7 +86,8 @@ fi
 
 if (($2 != "1" & (($2 == "2" & $# == "3") | ($2 == "3" & $# == 9))))
 then
-    echo "Programa mpicc en camino..."
+    mpicc ditsum.c -o eje.exe
+    mpirun -npn host.txt ./eje.exe 200 -V >> log.txt
 else
     if (($DONE == "0"))
     then
