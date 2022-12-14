@@ -98,13 +98,13 @@ else
         echo "                                                        [formato de salida para el video (ogg/mp3/flac)]"
         echo "            Ejemplos:"
         echo "                    Ejecución de sólo las pruebas de transcodificación:"
-        echo "                    bash Unificaion\ de\ respuestas.bash 4kvideo.mp4 1 0 800x600  00:03:00  00:05:00 960:540 480:270 mp3"
+        echo "                    bash Script_Prueba_Rendimiento.bash 4kvideo.mp4 1 0 800x600  00:03:00  00:05:00 960:540 480:270 mp3"
         echo ""
         echo "                    Ejecución de sólo la prueba de algoritmo distribuído:"
-        echo "                    bash Unificaion\ de\ respuestas.bash 4kvideo.mp4 2 -1"
+        echo "                    bash Script_Prueba_Rendimiento.bash 4kvideo.mp4 2 -1"
         echo ""
         echo "                    Ejecución de ambas pruebas:"
-        echo "                    bash Unificaion\ de\ respuestas.bash 4kvideo.mp4 3 4 1280x1024 00:00:00  01:02:00 0:0 680:270 ogg"
+        echo "                    bash Script_Prueba_Rendimiento.bash 4kvideo.mp4 3 4 1280x1024 00:00:00  00:00:05 0:0 680:270 ogg"
     fi
 fi
 
