@@ -1,13 +1,6 @@
 # trabajo2
 
-Pedro Figueroa, Ejercicio 1.1 tratamiento de video.
+El uso del Script "Script_Prueba_Rendimiento.bash" requiere la previa instalación de los siguientes paquetes en una máquina Ubunti 20.04:
 
-Alexis Bolados, Ejercicio 1.5 extracción audio/video.
-
-Setgio Meirone, Ejercicio 1.6 extracción audio/video.
-
-Ignacio Sanhueza, Ejercicio 1.2 cambio tasa/aspecto.
-
-Jeremias Betancourt, Ejercicio 1.3 cambio/aspecto.
-
-Ignacio Sanhueza, Ejercicio 1.4
+sudo apt-get install ffmpeg
+sudo apt-get install exiftool
